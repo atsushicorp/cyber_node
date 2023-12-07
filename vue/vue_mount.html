@@ -2,21 +2,27 @@
 <html lang="en">
 <head>
     <title>Vue.jsのサンプル</title>
-    
     <script src="https://unpkg.com/vue@3.0.0/dist/vue.global.js"></script>
 </head>
 <body>
     
     <h1>Vue3</h1>
     <div id="app">
-        {{message}}
+        {{ message }}
     </div>
     <script>
         const appdata={
             data(){
                 return{
-                    message:"This is sample page."
+                    message:"This is sample page.",
+                    count: 0
                 }
+            },
+            mounted(){
+                setInterval(() => {
+                    this.count++
+                    this.message = 'Count: ' + this.count
+                }, 1000)
             }
         }
 
