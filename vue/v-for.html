@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>Vue.jsのサンプル</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://unpkg.com/vue@3.0.0/dist/vue.global.js"></script>
+</head>
+<body>
+    <h1 class="bg-primary text-white display-4 px-3">Vue3</h1>
+    <div id="app">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>アイテムの名前</th>
+            </tr>
+        </thead>
+        <tr v-for="item in items" key:="items">
+            <td>{{ item }}</td>
+        </tr>
+        
+    </table>
+</div>
+    <script>
+        const appdata = {
+            data(){
+                return{
+                    items:['りんご','バナナ','オレンジ','いちご']
+                };
+            }
+        }
+        Vue.createApp(appdata).mount('#app');
+    </script>
+</body>
+</html>

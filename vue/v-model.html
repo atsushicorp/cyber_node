@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>Vue.jsのサンプル</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://unpkg.com/vue@3.0.0/dist/vue.global.js"></script>
+</head>
+<body>
+    <h1 class="bg-primary text-white display-4 px-3">Vue3</h1>
+    <div id="app">
+        <input type="text" name="message" v-model="message">
+        <button v-on:click="onClick" class="btn btn-primary">表示</button>
+        <p id="msg">入力されたテキスト:{{ message }}</p>
+    </div>
+    <script>
+        const appdata = {
+            data(){
+                return{
+                    message: ''
+                };
+            },
+            methods:{
+                onClick:()=>{
+                    
+                    alert(this.message);//dataブロック内の変数dataはスコープ外のため、DOMの変数メッセージから取得する
+                }
+            }           
+    };
+        Vue.createApp(appdata).mount('#app');
+    </script>
+</body>
+</html>

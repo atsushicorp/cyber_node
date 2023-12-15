@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>Vue.jsのサンプル</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://unpkg.com/vue@3.0.0/dist/vue.global.js"></script>
+</head>
+<body>
+    <h1 class="bg-primary text-white display-4 px-3">Vue3</h1>
+    <div id="app">
+        <button v-on:click="onClick">マウスをクリック</button>
+        <p>{{ timedisp }}</p>
+    </div>
+    <script>
+        const appdata = {
+            data:()=>({
+                
+                timedisp:'-'
+               
+            }),
+            methods:{
+                onClick:function(){
+                    let nowTime = new Date(); //  現在日時を得る
+                    let nowHour = nowTime.getHours(); // 時間を抜き出す
+                    let nowMin  = nowTime.getMinutes(); // 分数を抜き出す
+                    let nowSec  = nowTime.getSeconds(); // 秒数を抜き出す
+
+                    this.timedisp = "現在時刻：" + nowHour + ":" + nowMin + ":" + nowSec;
+
+                }
+
+            }
+        }
+        Vue.createApp(appdata).mount('#app');
+    </script>
+</body>
+</html>
